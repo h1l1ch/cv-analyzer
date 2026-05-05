@@ -32,16 +32,29 @@
     </style>
 </head>
 <body>
-
+<div style="text-align:right; margin-bottom:20px;">
+    {% if user.is_authenticated %}
+        <span>Welcome, {{ user.username }}</span> |
+        <a href="/accounts/logout/">Logout</a>
+    {% else %}
+        <a href="/accounts/login/">Login</a>
+    {% endif %}
+</div>
 <h1>AI CV Analyzer 🚀</h1>
 
-<form method="post">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <textarea name="cv_text" rows="10" placeholder="Paste your CV here..."></textarea>
+    <p>Upload PDF:</p>
+    {{ form.file }}
+
+    <p>OR paste CV:</p>
+    {{ form.text }}
+
+    <p>Paste Job Description:</p>
+    {{ form.job_description }}
+
     <br><br>
-    <button type="submit" onclick="this.innerText='Analyzing...'">
-        Analyze CV
-    </button>
+    <button type="submit">Analyze</button>
 </form>
 
 {% if result %}

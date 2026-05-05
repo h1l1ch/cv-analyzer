@@ -1,0 +1,9 @@
+<h1>Your Analyses</h1>
+
+{% for item in analyses %}
+    <div>
+        <p>Score: {{ item.match_score }}%</p>
+        <p>{{ item.summary }}</p>
+        <hr>
+    </div>
+{% endfor %}

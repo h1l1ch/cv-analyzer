@@ -1,0 +1,112 @@
+<style>
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    line-height: 1.8;
+}
+</style>
+
+<div class="container">
+
+    <h1>AI CV Match Analysis 🚀</h1>
+
+    {% if data.match_score >= 80 %}
+        <h2 style="color:green;">
+            Match Score: {{ data.match_score }}%
+        </h2>
+
+        <div style="background:#ddd; border-radius:10px; height:30px;">
+            <div style="
+                width: {{ data.match_score }}%;
+                background: green;
+                height:30px;
+                border-radius:10px;
+                text-align:center;
+                color:white;
+            ">
+                {{ data.match_score }}%
+            </div>
+        </div>
+
+    {% elif data.match_score >= 60 %}
+        <h2 style="color:orange;">
+            Match Score: {{ data.match_score }}%
+        </h2>
+
+        <div style="background:#ddd; border-radius:10px; height:30px;">
+            <div style="
+                width: {{ data.match_score }}%;
+                background: orange;
+                height:30px;
+                border-radius:10px;
+                text-align:center;
+                color:white;
+            ">
+                {{ data.match_score }}%
+            </div>
+        </div>
+
+    {% else %}
+        <h2 style="color:red;">
+            Match Score: {{ data.match_score }}%
+        </h2>
+
+        <div style="background:#ddd; border-radius:10px; height:30px;">
+            <div style="
+                width: {{ data.match_score }}%;
+                background: red;
+                height:30px;
+                border-radius:10px;
+                text-align:center;
+                color:white;
+            ">
+                {{ data.match_score }}%
+            </div>
+        </div>
+    {% endif %}
+
+    <h2>🟢 Strengths</h2>
+    <ul>
+        {% for item in data.strengths %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>🔴 Missing Skills</h2>
+    <ul>
+        {% for item in data.missing_skills %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>🚀 Improvements</h2>
+    <ul>
+        {% for item in data.improvements %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>📋 Summary</h2>
+    <p>{{ data.summary }}</p>
+
+    <br><br>
+
+    <a href="/">Analyze another CV</a>
+
+</div>
