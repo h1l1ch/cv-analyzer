@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-%reyt#@kf@q-&8)d0kyo21ao7adnw67_@n9gj3(avu4%09q#(w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cv-analyzer-zpmx.onrender.com']
 
 
 # Application definition
