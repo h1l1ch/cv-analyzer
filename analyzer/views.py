@@ -1,5 +1,6 @@
 import os
 import json
+from django.contrib.auth.models import User
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -11,6 +12,11 @@ from django.contrib.auth.decorators import login_required
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+
+def create_admin(request):
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser('admin', 'admin@example.com', 'admin123')
+    return HttpResponse("Admin created")
 
 def extract_text_from_pdf(file):
     try:
