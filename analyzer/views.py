@@ -37,7 +37,6 @@ def debug_templates(request):
     return HttpResponse(str(settings.TEMPLATES))
 
 
-@login_required
 def home(request):
     if request.method == "POST":
         form = CVUploadForm(request.POST, request.FILES)
@@ -111,7 +110,12 @@ JOB DESCRIPTION:
                 CVAnalysis.objects.create(
                     user=request.user,
                     match_score=data.get("match_score", 0),
-                    summary=data.get("summary", "")
+                    summary=data.get("summary", ""),
+                    strengths=json.dumps(data.get("strengths", [])),
+                    missing_skills=json.dumps(data.get("missing_skills", [])),
+                    improvements=json.dumps(data.get("improvements", [])),
+                    cv_text=text,
+                    job_description=job_description,
                 )
 
                 return render(request, "analyzer/result.html", {"data": data})
@@ -129,3 +133,17 @@ def dashboard(request):
     analyses = CVAnalysis.objects.filter(user=request.user).order_by('-created_at')
 
     return render(request, "analyzer/dashboard.html", {"analyses": analyses})
+
+@login_required
+def analysis_detail(request, analysis_id):
+
+    analysis = CVAnalysis.objects.get(
+        id=analysis_id,
+        user=request.user
+    )
+
+    return render(
+        request,
+        "analyzer/analysis_detail.html",
+        {"analysis": analysis}
+    )

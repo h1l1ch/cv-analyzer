@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-%reyt#@kf@q-&8)d0kyo21ao7adnw67_@n9gj3(avu4%09q#(w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cv-analyzer-zpmx.onrender.com']
+ALLOWED_HOSTS = ['cv-analyzer-zpmx.onrender.com', '127.0.0.1', 'localhost', '.onrender.com',]
 
 
 # Application definition
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'ai_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

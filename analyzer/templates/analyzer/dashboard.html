@@ -4,6 +4,9 @@
     <div>
         <p>Score: {{ item.match_score }}%</p>
         <p>{{ item.summary }}</p>
+        <a href="{% url 'analysis_detail' item.id %}">
+            View Full Analysis
+        </a>
         <hr>
     </div>
 {% endfor %}

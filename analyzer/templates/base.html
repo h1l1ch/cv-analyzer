@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CV Analyzer</title>
+</head>
+<body>
+
+    <div style="padding:20px; background:black; color:white;">
+
+        <a href="/" style="color:white; margin-right:20px;">Home</a>
+
+        <a href="/dashboard/" style="color:white; margin-right:20px;">Dashboard</a>
+
+        {% if user.is_authenticated %}
+            <span>Welcome, {{ user.username }}</span>
+
+            <a href="/accounts/logout/" style="color:white; margin-left:20px;">
+                Logout
+            </a>
+        {% else %}
+            <a href="/accounts/login/" style="color:white;">
+                Login
+            </a>
+        {% endif %}
+
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

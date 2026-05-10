@@ -1,10 +1,8 @@
-<style>
-body {
-    font-family: Arial;
-    background: #f4f4f4;
-    padding: 40px;
-}
+{% extends 'base.html' %}
 
+{% block content %}
+
+<style>
 .container {
     background: white;
     padding: 30px;
@@ -27,11 +25,13 @@ ul {
     <h1>AI CV Match Analysis 🚀</h1>
 
     {% if data.match_score >= 80 %}
+
         <h2 style="color:green;">
             Match Score: {{ data.match_score }}%
         </h2>
 
         <div style="background:#ddd; border-radius:10px; height:30px;">
+
             <div style="
                 width: {{ data.match_score }}%;
                 background: green;
@@ -40,16 +40,21 @@ ul {
                 text-align:center;
                 color:white;
             ">
+
                 {{ data.match_score }}%
+
             </div>
+
         </div>
 
     {% elif data.match_score >= 60 %}
+
         <h2 style="color:orange;">
             Match Score: {{ data.match_score }}%
         </h2>
 
         <div style="background:#ddd; border-radius:10px; height:30px;">
+
             <div style="
                 width: {{ data.match_score }}%;
                 background: orange;
@@ -58,16 +63,21 @@ ul {
                 text-align:center;
                 color:white;
             ">
+
                 {{ data.match_score }}%
+
             </div>
+
         </div>
 
     {% else %}
+
         <h2 style="color:red;">
             Match Score: {{ data.match_score }}%
         </h2>
 
         <div style="background:#ddd; border-radius:10px; height:30px;">
+
             <div style="
                 width: {{ data.match_score }}%;
                 background: red;
@@ -76,12 +86,17 @@ ul {
                 text-align:center;
                 color:white;
             ">
+
                 {{ data.match_score }}%
+
             </div>
+
         </div>
+
     {% endif %}
 
     <h2>🟢 Strengths</h2>
+
     <ul>
         {% for item in data.strengths %}
             <li>{{ item }}</li>
@@ -89,6 +104,7 @@ ul {
     </ul>
 
     <h2>🔴 Missing Skills</h2>
+
     <ul>
         {% for item in data.missing_skills %}
             <li>{{ item }}</li>
@@ -96,6 +112,7 @@ ul {
     </ul>
 
     <h2>🚀 Improvements</h2>
+
     <ul>
         {% for item in data.improvements %}
             <li>{{ item }}</li>
@@ -103,6 +120,7 @@ ul {
     </ul>
 
     <h2>📋 Summary</h2>
+
     <p>{{ data.summary }}</p>
 
     <br><br>
@@ -110,3 +128,5 @@ ul {
     <a href="/">Analyze another CV</a>
 
 </div>
+
+{% endblock %}
