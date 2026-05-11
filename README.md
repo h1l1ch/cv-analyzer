@@ -108,3 +108,15 @@ AI integrations
 Backend architecture
 API development
 Production-ready web applications
+
+## 📸 Screenshots
+
+### Home Page
+![Home Page](screenshots/cv-analyzer-home-page.png)
+
+### Analysis Result
+![Result](screenshots/cv-analyzer-match-score.png)
+![Result](screenshots/cv-analyzer-continued.png)
+
+### Analysis Result Mobile
+![Result Mobile](screenshots/cv-analyzer-mobile.png)
