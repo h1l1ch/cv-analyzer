@@ -107,8 +107,10 @@ JOB DESCRIPTION:
 
                 data = json.loads(result_text)
 
+                user = request.user if request.user.is_authenticated else None
+
                 CVAnalysis.objects.create(
-                    user=request.user,
+                    user=user,
                     match_score=data.get("match_score", 0),
                     summary=data.get("summary", ""),
                     strengths=json.dumps(data.get("strengths", [])),
