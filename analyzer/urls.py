@@ -9,4 +9,5 @@ urlpatterns = [
         views.analysis_detail,
         name='analysis_detail'
     ),
+    path('download-pdf/', views.download_pdf, name='download_pdf'),
 ]

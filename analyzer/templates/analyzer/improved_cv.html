@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>✨ Improved CV</h1>
+
+<div class="container">
+
+    <div class="result-box">
+        {{ improved_cv|linebreaks }}
+    </div>
+
+    <a href="/download-pdf/?text={{ improved_cv|urlencode }}">
+        <button>
+            Download PDF
+        </button>
+    </a>
+
+</div>
+
+<style>
+
+.result-box {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    line-height: 1.8;
+    font-size: 16px;
+    white-space: normal;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.result-box p {
+    margin-bottom: 18px;
+}
+
+</style>
+
+{% endblock %}

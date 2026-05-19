@@ -21,5 +21,6 @@ from analyzer.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home, name="home"),
+    path('', include('analyzer.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

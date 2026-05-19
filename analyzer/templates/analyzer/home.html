@@ -5,6 +5,7 @@
 <h1>AI CV Analyzer 🚀</h1>
 
 <form method="POST" enctype="multipart/form-data">
+
     {% csrf_token %}
 
     <p>Upload PDF:</p>
@@ -18,14 +19,14 @@
 
     <br><br>
 
-    <button type="submit">Analyze</button>
-</form>
+    <button type="submit" name="action" value="analyze">
+        Analyze CV
+    </button>
 
-{% if result %}
-<div class="result">
-    <h2>Analysis</h2>
-    <p>{{ result }}</p>
-</div>
-{% endif %}
+    <button type="submit" name="action" value="improve">
+        Improve CV
+    </button>
+
+</form>
 
 {% endblock %}
